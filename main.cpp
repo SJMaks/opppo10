@@ -19,7 +19,25 @@ double my_pow(double num, int pow)
 	return result;
 }
 
+double my_pow_fast(double num, unsigned int pow)
+{
+	long result = 1;
+	while (pow) {
+		if (pow % 2 == 0) {
+			pow /= 2;
+			num *= num;
+		}
+		else {
+			pow--;
+			result *= num;
+		}
+	}
+
+	return result;
+}
+
 int main()
 {
-	cout << my_pow(2, -5);
+	cout << my_pow(2, -5) << endl;
+	cout << my_pow_fast(2, 5);
 }
